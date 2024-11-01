@@ -25,15 +25,23 @@ public static class FileTasks
         {
             while (reader.BaseStream.Position < reader.BaseStream.Length)
             {
-                numbers.Add(reader.ReadInt32());
+                var num = reader.ReadInt32();
+                System.Console.WriteLine($"Прочитано: {num}");
+
+                numbers.Add(num);
             }
         }
         using (var writer = new BinaryWriter(File.Open(outputFilePath, FileMode.Create)))
         {
+            var count = 0;
             foreach (var number in numbers)
             {
+                count++;
+
                 writer.Write(number);
             }
+
+            System.Console.WriteLine($"Чисел без дубликатов: {count}");
         }
     }
 
