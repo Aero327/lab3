@@ -93,7 +93,7 @@ internal class Program
         }
         catch (FormatException)
         {
-            Console.WriteLine("Ошибка: неверный ввод. Убедитесь, что вы ввели именно число.");
+            Console.WriteLine("Ошибка: неверный ввод. Убедитесь, что вы ввели корректные данные.");
         }
     }
 

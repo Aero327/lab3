@@ -4,6 +4,7 @@ public class Arrays2D
 {
     public int[,] Matrix { get; set; }
     
+    // Первый массив
     public Arrays2D()
     {
         try
@@ -82,6 +83,7 @@ public class Arrays2D
         }
     }
 
+    // Третий массив
     public Arrays2D(int n)
     {
         Matrix = new int[n, n];
@@ -144,6 +146,7 @@ public class Arrays2D
         }
     }
 
+    // Второй массив
     public Arrays2D(int n, int m, int ceiling)
     {
         Matrix = new int[n, m];

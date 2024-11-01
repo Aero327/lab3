@@ -20,15 +20,18 @@ public static class FileTasks
 
     public static void RemoveDuplicatesFromBinaryFile(string inputFilePath, string outputFilePath)
     {
-        var numbers = new HashSet<int>();
+        var numbers = new List<int>();
         using (var reader = new BinaryReader(File.Open(inputFilePath, FileMode.Open)))
         {
             while (reader.BaseStream.Position < reader.BaseStream.Length)
             {
                 var num = reader.ReadInt32();
-                System.Console.WriteLine($"Прочитано: {num}");
-
-                numbers.Add(num);
+                
+                if (!numbers.Contains(num)) 
+                {
+                    System.Console.WriteLine($"Прочитано: {num}");
+                    numbers.Add(num);
+                }
             }
         }
         using (var writer = new BinaryWriter(File.Open(outputFilePath, FileMode.Create)))
